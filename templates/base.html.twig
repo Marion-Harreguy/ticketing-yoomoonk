@@ -17,18 +17,24 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <form class="form-inline ml-4 my-2 my-lg-0">
-            <button type="button-inline" class="btn btn-secondary"><a href="">Ajouter un ticket !</a></button>
+            <button type="button-inline" class="btn btn-secondary mr-4"><a href="{{ path( 'ticket-index' ) }}">Liste des tickets</a></button>
+            <button type="button-inline" class="btn btn-secondary mr-4"><a href="{{ path( 'ticket-create' ) }}">Ajouter un ticket !</a></button>
         </form>
     </nav>
-    <main class="container mt-5 mb-5">
+    <main>
+
         {% block body %}{% endblock %}
 
     </main>
 
     <!-- Footer -->
-    <div class="card-footer w-100">
+    <footer class="w-100 pr-4 pl-4 pt-3 pb-3 d-flex">
       <small class="text-muted">made with &#9829</small>
-    </div>
+      <a href="#">Copyright 2023 @Yoomoonk</a>
+      <a href="#">Contact</a>
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+    </footer>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

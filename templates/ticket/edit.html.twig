@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un ticket{% endblock %}
+
+{% block body %}
+
+<h3 class="mb-3 text-muted">Modifier le ticket #{{ customer.id }}</h3>
+
+<div class="jumbotron">
+
+    {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="button-inline" class="btn btn-secondary"><a href="{{ path( 'ticket-index' ) }}">Annuler</a></button>
+        <button type="submit" class="btn btn-secondary">Envoyez</button>
+
+    {{ form_end(form) }}
+
+</div>
+
+
+{% endblock %}

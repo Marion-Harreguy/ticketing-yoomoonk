@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Form\TicketType;
+use App\Repository\CustomerRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,19 +17,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class TicketController extends AbstractController
 {
     /**
-     * @Route("/", name="list", methods={ "GET" })
+     * @Route("/", name="index", methods={ "GET" })
      */
-    public function list(): Response
+    public function index(CustomerRepository $customerRepository): Response
     {
-        return $this->render('ticket/list.html.twig', [
-            'controller_name' => 'TicketController',
+        $customers = $customerRepository->findAll();
+
+        return $this->render('ticket/index.html.twig', [
+            'customers' => $customers
         ]);
     }
 
     /**
-     * @Route("/add", name="add", methods={ "GET", "POST" })
+     * @Route("/add", name="create", methods={ "GET", "POST" })
      */
-    public function add(Request $request): Response
+    public function create(Request $request, EntityManagerInterface $em): Response
     {
         $customer = new Customer();
 
@@ -37,16 +41,71 @@ class TicketController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($customer);
-            $entityManager->flush();
+            $em->persist($customer);
+            $em->flush();
 
-            return $this->redirectToRoute('ticket-list');
+            $this->addFlash('sucess', 'Votre ticket a été envoyé avec succès');
+
+            return $this->redirectToRoute('ticket-index');
         }
 
-        return $this->render('ticket/add.html.twig', [
+        return $this->render('ticket/create.html.twig', [
             'customer' => $customer,
             'form'     => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}", name="read", methods={ "GET" }, requirements={"id":"\d+"})
+     */
+    public function read(Customer $customer): Response
+    {
+        if(!$customer) {
+            return $this->redirectToRoute('ticket-index');
+        }
+
+        return $this->render('ticket/read.html.twig', [
+            'customer' => $customer
+        ]);
+    }
+
+    /**
+     * @Route("/edit/{id}", name="edit", requirements={"id":"\d+"})
+     */
+    public function edit(EntityManagerInterface $em, Request $request, Customer $customer): Response
+    {   
+        $form = $this->createForm(TicketType::class, $customer);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+
+            $customer->setUpdatedAt(new \Datetime());
+
+            $em->flush();
+
+            $this->addFlash('info', "Le ticket a été mis à jour !");
+
+            return $this->redirectToRoute('ticket-read', ['id' => $customer->getId()]);
+        }
+
+        return $this->render('/ticket/edit.html.twig', [
+            'form'     => $form->createView(),
+            'customer' => $customer
+        ]);
+    }
+
+    /**
+     * @Route("/delete/{id}", name="delete", requirements={"id":"\d+"})
+     */
+    public function delete(Customer $customer, EntityManagerInterface $em): Response
+    {
+        $em->persist($customer);
+        $em->remove($customer);
+        $em->flush();
+
+        $this->addFlash('info', 'Votre ticket a été supprimé');
+
+        return $this->redirectToRoute('ticket-index');
     }
 }

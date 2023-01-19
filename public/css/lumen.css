@@ -69,7 +69,7 @@ body {
   line-height: 1.5;
   color: #2c2c2c;
   text-align: left;
-  background-color: #f1ff04;
+  background-color: #ffffff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2831,8 +2831,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-secondary:hover {
-  color: #222;
-  background-color: #f1ff04;
+  color: #ffffff;
+  background-color: #159d38;
   border-color: #d7d6d6;
 }
 
@@ -2864,13 +2864,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-success {
-  color: #fff;
+  color: #fff !important;
   background-color: #28B62C;
   border-color: #28B62C;
 }
 
 .btn-success:hover {
-  color: #fff;
+  color: #fff !important;
   background-color: #219724;
   border-color: #1f8c22;
 }
@@ -2981,19 +2981,19 @@ fieldset:disabled a.btn {
 }
 
 .btn-danger {
-  color: #fff;
+  color: #fff !important;
   background-color: #FF4136;
   border-color: #FF4136;
 }
 
 .btn-danger:hover {
-  color: #fff;
+  color: #fff !important;
   background-color: #ff1d10;
   border-color: #ff1103;
 }
 
 .btn-danger:focus, .btn-danger.focus {
-  color: #fff;
+  color: #fff !important;
   background-color: #ff1d10;
   border-color: #ff1103;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 94, 84, 0.5);
@@ -3001,14 +3001,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-danger.disabled, .btn-danger:disabled {
-  color: #fff;
+  color: #fff !important;
   background-color: #FF4136;
   border-color: #FF4136;
 }
 
 .btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active,
 .show > .btn-danger.dropdown-toggle {
-  color: #fff;
+  color: #fff !important;
   background-color: #ff1103;
   border-color: #f50d00;
 }
@@ -5153,7 +5153,7 @@ input[type="button"].btn-block {
   text-align: center;
   bottom: 0;
   padding: 0.75rem 1.25rem;
-  background-color: #2f2f2f;
+  background-color: #d8d8d8;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -11219,9 +11219,24 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 /**** adding css *****/
 
+/* Style - content */
+main {background: #52e378;height: 100vh;}
+
+/* Welcome */
+.welcome {background: #52e378;color: #fff;}
+.welcome .picture > img {width: 550px;height: auto;}
+
 /* Form */
 form[name="ticket"] label {width: 20%;}
-form[name="ticket"] input, form[name="ticket"] textarea {width: 80%;}
+form[name="ticket"] input, form[name="ticket"] textarea {width: 80%;padding: 2px 10px;border: 1px solid #cfcfcf;border-radius: 4px;}
 form[name="ticket"] button[type="submit"] {width: 20%;float: right;}
 #ticket > div {margin-bottom: 15px;display: flex;align-items: flex-start;}
 #ticket input::placeholder, #ticket textarea::placeholder {opacity: .4;}
+.btn-success, .btn-danger {color: #fff !important;}
+
+/* add - ticket */
+main.create p {font-size: 18px;}
+
+/* Footer */
+footer {background-color: #0b6522;justify-content: space-evenly;}
+footer a {font-size: 14px;color: #fff !important;}
