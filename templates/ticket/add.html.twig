@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ticketing Yoomoonk - Ajout d'un ticket{% endblock %}
+
+{% block body %}
+
+<!-- card -->
+<h3 class="mb-3 text-muted">Ajouter un ticket</h3>
+
+<div class="jumbotron">
+
+{{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+    <button type="submit" class="btn btn-secondary">Envoyez</button>
+
+{{ form_end(form) }}
+
+</div>
+
+{% endblock %}

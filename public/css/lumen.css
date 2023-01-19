@@ -67,9 +67,9 @@ body {
   font-size: 0.975rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #5c6b73;
+  color: #2c2c2c;
   text-align: left;
-  background-color: #acd518;
+  background-color: #f1ff04;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -168,7 +168,7 @@ a {
 }
 
 a:hover {
-  color: #acd518;
+  color: #2c2c2c;
   text-decoration: underline;
 }
 
@@ -2832,7 +2832,7 @@ fieldset:disabled a.btn {
 
 .btn-secondary:hover {
   color: #222;
-  background-color: #dddddd;
+  background-color: #f1ff04;
   border-color: #d7d6d6;
 }
 
@@ -11216,3 +11216,12 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .toast .close:not(:disabled):not(.disabled):focus {
   color: #000;
 }
+
+/**** adding css *****/
+
+/* Form */
+form[name="ticket"] label {width: 20%;}
+form[name="ticket"] input, form[name="ticket"] textarea {width: 80%;}
+form[name="ticket"] button[type="submit"] {width: 20%;float: right;}
+#ticket > div {margin-bottom: 15px;display: flex;align-items: flex-start;}
+#ticket input::placeholder, #ticket textarea::placeholder {opacity: .4;}
