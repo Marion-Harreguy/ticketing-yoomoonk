@@ -51,6 +51,8 @@
 }
 
 html {
+  overflow-x: hidden;
+  overflow-y: scroll;
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -69,7 +71,7 @@ body {
   line-height: 1.5;
   color: #2c2c2c;
   text-align: left;
-  background-color: #ffffff;
+  background-color: #52e378;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -162,13 +164,13 @@ sup {
 }
 
 a {
-  color: #5c6b73;
+  color: #f0f0f0;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #2c2c2c;
+  color: rgba(240, 240, 240, .7);
   text-decoration: underline;
 }
 
@@ -2762,7 +2764,7 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #222;
+  color: #fff !important;
   text-decoration: none;
 }
 
@@ -3021,41 +3023,41 @@ fieldset:disabled a.btn {
 
 .btn-light {
   color: #222;
-  background-color: #f6f6f6;
-  border-color: #f6f6f6;
+  background-color: #7b7b7b;
+  border-color: #b3b3b3;
 }
 
 .btn-light:hover {
   color: #222;
-  background-color: #e3e3e3;
-  border-color: #dddcdc;
+  background-color: #4d4c4c;
+  border-color: #b3b3b3;
 }
 
 .btn-light:focus, .btn-light.focus {
   color: #222;
-  background-color: #e3e3e3;
-  border-color: #dddcdc;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(214, 214, 214, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(214, 214, 214, 0.5);
+  background-color: #4d4c4c;
+  border-color: #b3b3b3;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(32, 28, 28, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(61, 60, 60, 0.);
 }
 
 .btn-light.disabled, .btn-light:disabled {
   color: #222;
-  background-color: #f6f6f6;
-  border-color: #f6f6f6;
+  background-color: #4d4c4c;
+  border-color: #b3b3b3;
 }
 
 .btn-light:not(:disabled):not(.disabled):active, .btn-light:not(:disabled):not(.disabled).active,
 .show > .btn-light.dropdown-toggle {
   color: #222;
-  background-color: #dddcdc;
-  border-color: #d6d6d6;
+  background-color: #4d4c4c;
+  border-color: #b3b3b3;
 }
 
 .btn-light:not(:disabled):not(.disabled):active:focus, .btn-light:not(:disabled):not(.disabled).active:focus,
 .show > .btn-light.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(214, 214, 214, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(214, 214, 214, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(61, 60, 60, 0.);
+          box-shadow: 0 0 0 0.2rem rgba(61, 60, 60, 0.);
 }
 
 .btn-dark {
@@ -11220,7 +11222,7 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 /**** adding css *****/
 
 /* Style - content */
-main {background: #52e378;height: 100vh;}
+main {background: #52e378;}
 
 /* Welcome */
 .welcome {background: #52e378;color: #fff;}
@@ -11229,14 +11231,18 @@ main {background: #52e378;height: 100vh;}
 /* Form */
 form[name="ticket"] label {width: 20%;}
 form[name="ticket"] input, form[name="ticket"] textarea {width: 80%;padding: 2px 10px;border: 1px solid #cfcfcf;border-radius: 4px;}
-form[name="ticket"] button[type="submit"] {width: 20%;float: right;}
+form[name="ticket"] button[type="submit"] {width: 15%;float: right;}
 #ticket > div {margin-bottom: 15px;display: flex;align-items: flex-start;}
 #ticket input::placeholder, #ticket textarea::placeholder {opacity: .4;}
 .btn-success, .btn-danger {color: #fff !important;}
 
-/* add - ticket */
-main.create p {font-size: 18px;}
+/* ticket */
+.jumbotron {margin: 0 auto;}
+.title {font-size: 20px;}
+.create p {font-size: 18px;}
+.card a {color: #2c2c2c;}
 
 /* Footer */
 footer {background-color: #0b6522;justify-content: space-evenly;}
 footer a {font-size: 14px;color: #fff !important;}
+

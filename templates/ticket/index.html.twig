@@ -7,10 +7,10 @@
 
     <div class="block list"> 
         <div class="container p-5">
-            <p class="pt-3 font-weight-bold">Liste des tickets</p>
-            <div class="d-flex flex-wrap">
+            <p class="title pt-3 font-weight-bold text-center">Liste des tickets</p>
+            <div class="d-flex flex-wrap justify-content-around">
                 {% for customer in customers %}
-                    <div class="card list-ticket border-grey mb-3 mr-4 mt-3" style="width: 20rem;">
+                    <div class="card list-ticket border-grey mb-3 mt-3" style="width: 20rem;">
                         <div class="card-header d-flex justify-content-between">
                             <a href="{{ path('ticket-read', {'id' : customer.id}) }}">
                                 <strong class="card-title">
@@ -24,11 +24,11 @@
                             <hr class="border-secondary">
                             <p class="card-text">{{ customer.email }}</p>
                             <p class="card-text">{{ customer.phone }}</p>
-                            <p class="card-text">{{ customer.adress }}, {{ customer.zip }} {{ customer.city }}</p>
+                            <p class="card-text">{{ customer.adress }} {{ customer.zip }} {{ customer.city }}</p>
                             <p class="card-text">Message : {{ customer.message|slice(0, 80) }}...</p>
                         </div>
                         <div class="card-footer d-flex justify-content-between">
-                            <button type="button-inline" class="btn btn-success"><a href="{{ path('ticket-edit', {'id' : customer.id}) }}">Modifier</a></button>
+                            <button type="button-inline" class="btn btn-info"><a href="{{ path('ticket-edit', {'id' : customer.id}) }}">Modifier</a></button>
                             <button type="button-inline" class="btn btn-danger"><a href="{{ path('ticket-delete', {'id' : customer.id}) }}">Supprimer</a></button>
                         </div>
                     </div>
