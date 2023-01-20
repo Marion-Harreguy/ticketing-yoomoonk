@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    
+
+    <div class="block list"> 
+        <div class="container p-5">
+            <p class="title pt-3 font-weight-bold text-center">Liste des tickets</p>
+            <div class="d-flex flex-wrap justify-content-around">
+                {% for customer in customers %}
+                    <div class="card list-ticket border-grey mb-3 mt-3" style="width: 20rem;">
+                        <div class="card-header d-flex justify-content-between">
+                            <a href="{{ path('ticket-read', {'id' : customer.id}) }}">
+                                <strong class="card-title">
+                                    <p class="mb-0">Ticket #{{ customer.id }}</p>
+                                    <p class="mb-0">Créé le {{ customer.createdAt|date('d-m-Y, H:i:s') }}</p>
+                                </strong>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <strong class="card-title text-capitalize">{{ customer.firstname }} {{customer.lastname }}</strong>
+                            <hr class="border-secondary">
+                            <p class="card-text">{{ customer.email }}</p>
+                            <p class="card-text">{{ customer.phone }}</p>
+                            <p class="card-text">{{ customer.adress }} {{ customer.zip }} {{ customer.city }}</p>
+                            <p class="card-text">Message : {{ customer.message|slice(0, 80) }}...</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <button type="button-inline" class="btn btn-info"><a href="{{ path('ticket-edit', {'id' : customer.id}) }}">Modifier</a></button>
+                            <button type="button-inline" class="btn btn-danger"><a href="{{ path('ticket-delete', {'id' : customer.id}) }}">Supprimer</a></button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
