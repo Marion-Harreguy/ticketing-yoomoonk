@@ -11244,5 +11244,6 @@ form[name="ticket"] button[type="submit"] {width: 15%;float: right;}
 
 /* Footer */
 footer {background-color: #0b6522;justify-content: space-evenly;}
+footer.fixed {position: fixed;bottom: 0;left: 0;}
 footer a {font-size: 14px;color: #fff !important;}
 
